@@ -1,0 +1,11 @@
+#/etc/sysconfig/network-scripts/ifcfg-wan0 
+NAME="wan0"
+DEVICE="wan0"
+ONBOOT=yes
+NETBOOT=no
+IPV6INIT=no
+BOOTPROTO=dhcp
+TYPE=Ethernet
+DNS1=127.0.0.1
+DNS2=10.3.2.1
+PEERDNS=no

@@ -1,0 +1,11 @@
+#/etc/sysconfig/network-scripts/ifcfg-lan0
+NAME="lan0"
+DEVICE="lan0"
+ONBOOT=yes
+NETBOOT=no
+IPV6INIT=no
+BOOTPROTO=none
+IPADDR0="10.3.2.1"
+NETMASK0="255.255.255.0"
+BROADCAST0="10.3.2.255"
+TYPE=Ethernet

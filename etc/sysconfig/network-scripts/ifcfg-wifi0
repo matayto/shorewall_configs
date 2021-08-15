@@ -1,0 +1,8 @@
+#/etc/sysconfig/network-scripts/ifcfg-wifi0 
+NAME="wifi0"
+DEVICE="wifi0"
+ONBOOT=yes
+NETBOOT=no
+IPV6INIT=no
+BOOTPROTO=none
+TYPE=Ethernet

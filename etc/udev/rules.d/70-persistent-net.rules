@@ -1,0 +1,4 @@
+# /etc/udev/rules.d/70-persistent-net.rules
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{dev_id}=="0x0", ATTR{address}=="00:0d:b9:41:70:c0", ATTR{type}=="1", KERNEL=="enp*", NAME="wan0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{dev_id}=="0x0", ATTR{address}=="00:0d:b9:41:70:c1", ATTR{type}=="1", KERNEL=="enp*", NAME="lan0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{dev_id}=="0x0", ATTR{address}=="00:0d:b9:41:70:c2", ATTR{type}=="1", KERNEL=="enp*", NAME="wifi0"

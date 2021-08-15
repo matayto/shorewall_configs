@@ -1,0 +1,47 @@
+#
+# Shorewall version 4 - Rules File
+#
+# For information on the settings in this file, type "man shorewall-rules"
+#
+# The manpage is also online at
+# http://www.shorewall.net/manpages/shorewall-rules.html
+#
+######################################################################################################################################################################################################
+#ACTION         SOURCE          DEST            PROTO   DEST    SOURCE          ORIGINAL        RATE            USER/   MARK    CONNLIMIT       TIME            HEADERS         SWITCH          HELPER
+#                                                       PORT(S) PORT(S)         DEST            LIMIT           GROUP
+?SECTION ALL
+?SECTION ESTABLISHED
+?SECTION RELATED
+?SECTION INVALID
+?SECTION UNTRACKED
+?SECTION NEW
+
+# FW to LAN
+ACCEPT  $FW                             lan:10.3.2.2            tcp     22
+ACCEPT  $FW                             lan:10.3.2.2            tcp     53
+ACCEPT  $FW                             lan:10.3.2.2            udp     53
+ACCEPT  $FW                             lan:10.3.2.3            tcp     53
+ACCEPT  $FW                             lan:10.3.2.3            udp     53
+
+# lan0.10 (trust);
+ACCEPT  lan                             $FW                     tcp     22
+ACCEPT  lan                             $FW                     tcp     80
+ACCEPT  lan                             $FW                     tcp     443
+ACCEPT  lan                             $FW                     tcp     5001
+ACCEPT  lan                             $FW:&lan0       icmp
+ACCEPT  lan                             $FW:&lan0               udp     68
+ACCEPT  lan                             $FW:&lan0       udp     69
+
+## unifi inform
+#ACCEPT         wl01                    lan:10.3.2.5    tcp     8080
+## unifi STUN
+#ACCEPT         wl01                    lan:10.3.2.5    udp     3478
+
+# DNS/DHCP/NTP
+DNS(ACCEPT)     $FW                     lan
+DNS(ACCEPT)     lan                     $FW
+NTP(ACCEPT)     lan                     $FW
+
+# graphite
+ACCEPT          $FW                     lan:10.3.2.160  tcp     2003
+
